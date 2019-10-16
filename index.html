@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">	
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+		</style>	
+	</head>
+	<body class="w3-theme-l5">
+		<!-- Page Container -->
+		<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+			<!-- The Grid -->
+			<div class="w3-row">
+				<!-- Left Column -->
+				<div class="w3-col m3">
+					<!-- Profile -->
+					<div class="w3-card w3-round w3-white">
+						<div class="w3-container">
+							<h4 class="w3-center">Font</h4>
+						</div>
+					</div>
+					<br>
+
+					<!-- End Left Column -->
+				</div>
+
+				<!-- Middle Column -->
+				<div class="w3-col m6">
+
+					<div class="w3-row-padding">
+						<div class="w3-col m12">
+							<div class="w3-card w3-round w3-white">
+								<div class="w3-container w3-padding">
+									<h6 class="w3-opacity">Sample Text</h6>
+									<input type="text" value="Hello world at 15:25 for 84$" class="w3-border w3-padding" id="bmfnt-sample-text" style="width:100%;">
+								</div>
+							</div>
+							<br/>
+							<div class="w3-card w3-round w3-white w3-center">
+								<div class="w3-container">
+									<p><canvas width="640" height="480" id="bmfnt-sample-canvas"></canvas></p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- End Middle Column -->
+				</div>
+
+				<!-- Right Column -->
+				<div class="w3-col m3">
+					<div class="w3-card w3-round w3-white w3-center">
+						<div class="w3-bar w3-black" style="width:100%;">
+							<div class="w3-bar-item w3-grey"><b><i class="fa fa-tint" aria-hidden="true"></i> Fill</b></div>
+							<button class="w3-bar-item w3-button bmfnt-tablink-fill w3-red" id="bmfnt-tablink-fill-solid" onclick="openTab('fill', 'solid');">Solid</button>
+							<button class="w3-bar-item w3-button bmfnt-tablink-fill" id="bmfnt-tablink-fill-gradient" onclick="openTab('fill', 'gradient');">Gradient</button>
+						</div>
+						<div class="w3-container bmfnt-tab-fill" id="bmfnt-tab-fill-solid">
+							<p><input type="color" id="bmfnt-solid-fill-picker" onchange="changedSolidFill();" value="#ff0000" style="width:85%;"></p>
+							<p><canvas id="bmfnt-solid-fill-canvas" width="100" height="32" style="width:85%"></canvas></p>
+						</div>
+						<div class="w3-container bmfnt-tab-fill" id="bmfnt-tab-fill-gradient" style="display:none;">
+							<p><input type="color" id="bmfnt-gradient-fill-picker-1" onchange="changedGradientFill();" value="#ff0000" style="width:85%;"></p>
+							<p><input type="color" id="bmfnt-gradient-fill-picker-2" onchange="changedGradientFill();" value="#00ff00" style="width:85%;"></p>
+							<p><input type="range" min="1" max="100" value="50" class="slider" id="bmfnt-gradient-fill-range" style="width:85%;" onchange="changedGradientFill();"></p>
+							<p><input type="range" min="1" max="100" value="0" class="slider" id="bmfnt-gradient-fill-sharpness" style="width:85%;" onchange="changedGradientFill();"></p>
+							<p><canvas id="bmfnt-gradient-fill-canvas" width="100" height="32" style="width:85%"></canvas></p>
+						</div>
+					</div>
+					<br>
+
+					<div class="w3-card w3-round w3-white w3-center">
+						<div class="w3-bar w3-black" style="width:100%;">
+							<div class="w3-bar-item w3-grey"><b><i class="fa fa-tint" aria-hidden="true"></i> Stroke</b></div>
+							<button class="w3-bar-item w3-button bmfnt-tablink-stroke w3-red" id="bmfnt-tablink-stroke-none" onclick="openTab('stroke', 'none');">None</button>
+							<button class="w3-bar-item w3-button bmfnt-tablink-stroke" id="bmfnt-tablink-stroke-solid" onclick="openTab('stroke', 'solid');">Solid</button>
+							<button class="w3-bar-item w3-button bmfnt-tablink-stroke" id="bmfnt-tablink-stroke-gradient" onclick="openTab('stroke', 'gradient');">Gradient</button>
+						</div>
+						<div class="w3-container bmfnt-tab-stroke" id="bmfnt-tab-stroke-none">
+						</div>
+						<div class="w3-container bmfnt-tab-stroke" id="bmfnt-tab-stroke-solid" style="display:none;">
+							<p><input type="color" id="bmfnt-solid-stroke-picker" onchange="changedSolidStroke();" value="#ff0000" style="width:85%;"></p>
+							<p><canvas id="bmfnt-solid-stroke-canvas" width="100" height="32" style="width:85%"></canvas></p>
+						</div>
+						<div class="w3-container bmfnt-tab-stroke" id="bmfnt-tab-stroke-gradient" style="display:none;">
+							<p><input type="color" id="bmfnt-gradient-stroke-picker-1" onchange="changedGradientStroke();" value="#ff0000" style="width:85%;"></p>
+							<p><input type="color" id="bmfnt-gradient-stroke-picker-2" onchange="changedGradientStroke();" value="#00ff00" style="width:85%;"></p>
+							<p><input type="range" min="1" max="100" value="50" class="slider" id="bmfnt-gradient-stroke-range" style="width:85%;" onchange="changedGradientStroke();"></p>
+							<p><input type="range" min="1" max="100" value="0" class="slider" id="bmfnt-gradient-stroke-sharpness" style="width:85%;" onchange="changedGradientStroke();"></p>
+							<p><canvas id="bmfnt-gradient-stroke-canvas" width="100" height="32" style="width:85%"></canvas></p>
+						</div>
+					</div>
+					<br>
+					<div class="w3-card w3-round w3-white w3-center">
+					</div>
+					<br>
+
+					<!-- End Right Column -->
+				</div>
+
+				<!-- End Grid -->
+			</div>
+
+			<!-- End Page Container -->
+		</div>
+		<br>
+
+		<!-- Footer -->
+		<footer class="w3-container w3-theme-d3 w3-padding-16">
+			<h5>Footer</h5>
+		</footer>
+
+		<footer class="w3-container w3-theme-d5">
+			<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+		</footer>
+
+		<script src="./index.js" onload="init();"></script>
+	</body>
+</html>
